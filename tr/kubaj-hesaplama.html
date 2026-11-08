@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kübaj hesaplama: tomruk m³, ster ve kereste hesabı</title>
+  <meta name="description" content="Orta çap ve boydan tomruk kübajı, ster ve m³ çevirme, kereste metreküp hesabı. Ücretsiz, reklamsız, çerezsiz.">
+  <link rel="canonical" href="https://mufa-tech.github.io/woodtally/tr/kubaj-hesaplama.html">
+  <link rel="alternate" hreflang="en" href="https://mufa-tech.github.io/woodtally/board-feet-calculator.html">
+  <link rel="alternate" hreflang="de" href="https://mufa-tech.github.io/woodtally/de/festmeter-rechner.html">
+  <link rel="alternate" hreflang="tr" href="https://mufa-tech.github.io/woodtally/tr/kubaj-hesaplama.html">
+  <link rel="alternate" hreflang="x-default" href="https://mufa-tech.github.io/woodtally/board-feet-calculator.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Woodtally">
+  <meta property="og:title" content="Kübaj hesaplama: tomruk m³, ster ve kereste hesabı">
+  <meta property="og:description" content="Orta çap ve boydan tomruk kübajı, ster ve m³ çevirme, kereste metreküp hesabı. Ücretsiz, reklamsız, çerezsiz.">
+  <meta property="og:url" content="https://mufa-tech.github.io/woodtally/tr/kubaj-hesaplama.html">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta name="theme-color" content="#F5EFE6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#17120D" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&amp;family=Barlow+Semi+Condensed:wght@600;700&amp;display=swap">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <a class="skip" href="#main">İçeriğe geç</a>
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="./" aria-label="Woodtally ana sayfa"><svg class="mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><g class="rings" fill="none" stroke-width="2.4"><circle cx="20" cy="20" r="17"/><circle cx="20" cy="20" r="10.5"/><circle cx="20" cy="20" r="4.5"/></g><line class="cut" x1="1.5" y1="20" x2="38.5" y2="20" stroke-width="3.2" stroke-linecap="round"/></svg><span>Woodtally</span></a>
+      <nav class="nav" aria-label="Woodtally">
+        <a href="kubaj-hesaplama.html" aria-current="page">Kübaj hesaplama</a>
+        <a href="support.html">Destek</a>
+        <a href="https://play.google.com/store/apps/details?id=com.mufatech.woodtally&hl=tr" rel="noopener">Google Play</a>
+      </nav>
+    </div>
+  </header>
+  <div class="tape" role="presentation"></div>
+  <main id="main">
+    <div class="wrap prose" style="padding-bottom:0">
+      <p class="kicker">Ücretsiz kübaj hesabı</p>
+      <h1>Kübaj hesaplama</h1>
+      <p class="lead">Orta çapı ve boyu gir, tomruğun kaç metreküp olduğunu gör. Aşağıda ster ve kereste hesabı da var. Hesap tarayıcında yapılır, hiçbir yere bir şey gönderilmez.</p>
+    </div>
+    <section style="padding-top:16px">
+      <div class="wrap">
+        <div class="calc">
+          <form id="kb-form" class="card form" novalidate>
+            <h2 style="font-size:1.35rem">Tomruk</h2>
+            <div class="field">
+              <label for="kb-d">Orta çap, cm <span class="hint">Tomruğun tam ortasından, kumpasla iki kez çapraz ölç ve ortalamasını al. 5 ile 150 arası.</span></label>
+              <input id="kb-d" type="text" inputmode="decimal" autocomplete="off" value="32">
+            </div>
+            <div class="field">
+              <label for="kb-l">Boy, m <span class="hint">Kesim payı (3–5 cm) hesaba girmez. 0,5 ile 40 arası.</span></label>
+              <input id="kb-l" type="text" inputmode="decimal" autocomplete="off" value="4">
+            </div>
+            <div class="field">
+              <label for="kb-n">Adet</label>
+              <input id="kb-n" type="text" inputmode="numeric" autocomplete="off" value="1">
+            </div>
+            <fieldset class="field" style="border:0;padding:0;margin:0">
+              <legend class="label" style="font-weight:600;margin-bottom:6px">Ağaç türü</legend>
+              <div class="radio-row">
+                <label><input type="radio" name="kb-t" value="igne" checked> <span>İğne yapraklı (çam, göknar, ladin, sedir): kabuksuz ölçülür</span></label>
+                <label><input type="radio" name="kb-t" value="yaprakli"> <span>Yapraklı (kayın, meşe, kavak, kestane): kabuklu ölçülür, çaptan 2 cm kabuk payı düşülür</span></label>
+              </div>
+            </fieldset>
+          </form>
+          <div class="results" aria-live="polite">
+            <div class="res"><div class="k">Hesaba giren çap</div><div class="n" id="kb-dc">32 cm</div></div>
+            <div class="res"><div class="k">Tomruk başına kübaj</div><div class="n" id="kb-v">0,322 m³</div><div class="s">V = π/4 × d² × L, d metre olarak</div></div>
+            <div class="res hl"><div class="k">Toplam</div><div class="n" id="kb-total">0,322 m³</div></div>
+            <p class="msg" id="kb-msg">İğne yapraklı: kabuksuz ölçüldü, düşüm yok.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="alt">
+      <div class="wrap">
+        <div class="calc">
+          <form id="st-form" class="card form" novalidate>
+            <h2 style="font-size:1.35rem">Ster ve m³</h2>
+            <div class="field">
+              <label for="st-q">Miktar</label>
+              <input id="st-q" type="text" inputmode="decimal" autocomplete="off" value="10">
+            </div>
+            <div class="field">
+              <label for="st-u">Birim</label>
+              <select id="st-u">
+                <option value="ster" selected>Ster (istif)</option>
+                <option value="m3">m³ (katı odun)</option>
+              </select>
+            </div>
+            <p class="small" style="margin:0">1 ster = 1 m × 1 m taban, 1,05 m istif yüksekliği (%5 oturma payı). 1 ster = 0,75 m³ (OGM Tebliğ 312).</p>
+          </form>
+          <div class="results" aria-live="polite">
+            <div class="res"><div class="k">Ster</div><div class="n" id="st-ster">10,00 ster</div></div>
+            <div class="res hl"><div class="k">Katı hacim</div><div class="n" id="st-m3">7,50 m³</div></div>
+            <p class="msg" id="st-msg"></p>
+            <p class="small" style="margin:0">İnce ve eğri odunda gerçek oran daha düşük çıkabilir. Doğu Anadolu'da sarıçam istiflerinde 0,50 ölçülmüş. Uygulamada katsayıyı kendin değiştirebilirsin.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="wrap">
+        <div class="calc">
+          <form id="kr-form" class="card form" novalidate>
+            <h2 style="font-size:1.35rem">Kereste</h2>
+            <div class="unit-row">
+              <div class="field"><label for="kr-t">Kalınlık, cm</label><input id="kr-t" type="text" inputmode="decimal" autocomplete="off" value="5"></div>
+              <div class="field"><label for="kr-w">En, cm</label><input id="kr-w" type="text" inputmode="decimal" autocomplete="off" value="20"></div>
+            </div>
+            <div class="unit-row">
+              <div class="field"><label for="kr-l">Boy, m</label><input id="kr-l" type="text" inputmode="decimal" autocomplete="off" value="4"></div>
+              <div class="field"><label for="kr-n">Adet</label><input id="kr-n" type="text" inputmode="numeric" autocomplete="off" value="10"></div>
+            </div>
+          </form>
+          <div class="results" aria-live="polite">
+            <div class="res hl"><div class="k">Kereste hacmi</div><div class="n" id="kr-v">0,4000 m³</div><div class="s">kalınlık × en × boy × adet</div></div>
+            <p class="msg" id="kr-msg"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="alt">
+      <div class="wrap narrow prose" style="padding-top:0;padding-bottom:0">
+        <h2 style="margin-top:0">Kübaj nasıl hesaplanır</h2>
+        <p>Devlet ormanlarında tomruk orta çaptan, Huber formülüyle hesaplanır: tomruğun ortasındaki daire alanı boyla çarpılır. Çap tam santimetreye indirilir, küsurat dikkate alınmaz.</p>
+        <p>Örnek: çam tomruk, orta çap 32,7 cm, boy 4 m. Çap 32 cm alınır: <span class="formula">3,1416 / 4 × 0,32² × 4 = 0,3217 m³</span>. Boydaki 3–5 cm kesim payı hesaba girmez.</p>
+        <h3>Yapraklılarda kabuk payı</h3>
+        <p>İğne yapraklı tomruk kabuğu soyulmuş olarak ölçülür. Yapraklılar kabuklu ölçülür ve çaptan 2 cm kabuk payı düşülür; bölgede tecrübeyle bulunmuş başka bir değer varsa o kullanılır (OGM Tebliğ 310 ve 312).</p>
+        <p>Örnek: kayın, kabuklu çap 41,6 ve 43,9 cm, ortalama 42,75 cm. Önce 42 cm'ye indirilir, sonra 2 cm düşülür: 40 cm. Boy 3 m ise <span class="formula">3,1416 / 4 × 0,40² × 3 = 0,3770 m³</span>.</p>
+        <h3>Alıcıyla neden fark çıkar</h3>
+        <p>Özel kerestecilerin bir kısmı tomruğu ince uçtan ya da kabuklu çapla ölçer, kabuk payını göz kararı düşer. İnce uçtan ölçülen hacim orta çaptan ölçülene göre düşük çıkar; kabuk payı düşülmezse yüksek. Metreküp fiyatında anlaşmadan önce hangi çapın, hangi kabuk payıyla ölçüleceğini konuşun.</p>
+        <h3>Ster ne demek</h3>
+        <p>Ster, 1 m³'lük odun istifidir; içinde boşluk vardır. Katı hacme çevirmek için 0,75 ile çarpılır: 10 ster yaklaşık 7,5 m³ eder. İnce, eğri ya da dallı odunda bu oran düşer.</p>
+      </div>
+    </section>
+    <section>
+      <div class="wrap narrow">
+        <div class="cta">
+          <h2>Bütün listeyi telefonda tut</h2>
+          <p>Woodtally her tomruğu OGM usulüyle hesaplar; toplamı, fiyatı ve PDF ya da CSV sevkiyat listesini verir. İnternet istemez, reklam yok, Pro tek seferlik.</p>
+          <a class="btn " href="https://play.google.com/store/apps/details?id=com.mufatech.woodtally&hl=tr" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 3.8v16.4c0 .8.9 1.3 1.6.9l13-8.2c.6-.4.6-1.4 0-1.8l-13-8.2C6.9 2.5 6 3 6 3.8z" fill="currentColor"/></svg><span>Google Play'den alın</span></a>
+        </div>
+        <p class="disclaimer" style="margin-top:24px">Hacimler seçilen usule göre hesaplanmış tahminlerdir. Anlaşmazlıkta resmî ölçü geçerlidir.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="foot">
+    <div class="wrap">
+      <nav aria-label="Gizlilik, Destek">
+        <a href="privacy.html">Gizlilik</a>
+        <a href="support.html">Destek</a>
+        <a href="kubaj-hesaplama.html" aria-current="page">Kübaj hesaplama</a>
+      </nav>
+      <nav aria-label="Language">
+        <a href="../board-feet-calculator.html" hreflang="en" lang="en">English</a>
+        <a href="../de/festmeter-rechner.html" hreflang="de" lang="de">Deutsch</a>
+        <a href="kubaj-hesaplama.html" hreflang="tr" lang="tr" aria-current="true">Türkçe</a>
+      </nav>
+      <p class="small" style="margin:0">Woodtally bir MUFATECH uygulamasıdır. <a href="mailto:hello@mufatech.com">hello@mufatech.com</a> · © 2026 MUFATECH</p>
+    </div>
+  </footer>
+  <script src="../calc.js" defer></script>
+</body>
+</html>

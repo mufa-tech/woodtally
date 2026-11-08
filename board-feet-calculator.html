@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Board feet calculator: Doyle vs International ¼ log scale</title>
+  <meta name="description" content="Free log scale calculator. Enter small-end diameter and length to get board feet by Doyle and International ¼, and the gap between them in percent and dollars. No ads, no cookies.">
+  <link rel="canonical" href="https://mufa-tech.github.io/woodtally/board-feet-calculator.html">
+  <link rel="alternate" hreflang="en" href="https://mufa-tech.github.io/woodtally/board-feet-calculator.html">
+  <link rel="alternate" hreflang="de" href="https://mufa-tech.github.io/woodtally/de/festmeter-rechner.html">
+  <link rel="alternate" hreflang="tr" href="https://mufa-tech.github.io/woodtally/tr/kubaj-hesaplama.html">
+  <link rel="alternate" hreflang="x-default" href="https://mufa-tech.github.io/woodtally/board-feet-calculator.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Woodtally">
+  <meta property="og:title" content="Board feet calculator: Doyle vs International ¼ log scale">
+  <meta property="og:description" content="Free log scale calculator. Enter small-end diameter and length to get board feet by Doyle and International ¼, and the gap between them in percent and dollars. No ads, no cookies.">
+  <meta property="og:url" content="https://mufa-tech.github.io/woodtally/board-feet-calculator.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:locale:alternate" content="tr_TR">
+  <meta name="theme-color" content="#F5EFE6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#17120D" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&amp;family=Barlow+Semi+Condensed:wght@600;700&amp;display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="./" aria-label="Woodtally home"><svg class="mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><g class="rings" fill="none" stroke-width="2.4"><circle cx="20" cy="20" r="17"/><circle cx="20" cy="20" r="10.5"/><circle cx="20" cy="20" r="4.5"/></g><line class="cut" x1="1.5" y1="20" x2="38.5" y2="20" stroke-width="3.2" stroke-linecap="round"/></svg><span>Woodtally</span></a>
+      <nav class="nav" aria-label="Woodtally">
+        <a href="board-feet-calculator.html" aria-current="page">Board feet calculator</a>
+        <a href="support.html">Support</a>
+        <a href="https://play.google.com/store/apps/details?id=com.mufatech.woodtally" rel="noopener">Google Play</a>
+      </nav>
+    </div>
+  </header>
+  <div class="tape" role="presentation"></div>
+  <main id="main">
+    <div class="wrap prose" style="padding-bottom:0">
+      <p class="kicker">Free log scale calculator</p>
+      <h1>Board feet calculator for logs</h1>
+      <p class="lead">Small-end diameter and length in, Doyle and International ¼ out, with the gap between them. It runs in your browser and sends nothing anywhere.</p>
+    </div>
+    <section style="padding-top:16px">
+      <div class="wrap">
+        <div class="calc">
+          <form id="bf-form" class="card form" novalidate>
+            <h2 style="font-size:1.35rem">One log</h2>
+            <div class="field">
+              <label for="bf-d">Small-end diameter, inches <span class="hint">Inside the bark. Average two readings at right angles. 6 to 60.</span></label>
+              <input id="bf-d" name="d" type="text" inputmode="decimal" autocomplete="off" value="16">
+            </div>
+            <div class="field">
+              <label for="bf-l">Length, feet <span class="hint">Without trim allowance. 4 to 20.</span></label>
+              <input id="bf-l" name="l" type="text" inputmode="decimal" autocomplete="off" value="16">
+            </div>
+            <div class="unit-row">
+              <div class="field">
+                <label for="bf-n">Logs</label>
+                <input id="bf-n" name="n" type="text" inputmode="numeric" autocomplete="off" value="1">
+              </div>
+              <div class="field">
+                <label for="bf-p">$ per MBF <span class="hint">Optional</span></label>
+                <input id="bf-p" name="p" type="text" inputmode="decimal" autocomplete="off" placeholder="e.g. 450">
+              </div>
+            </div>
+          </form>
+          <div class="results" aria-live="polite">
+            <div class="res"><div class="k">Doyle</div><div class="n" id="bf-doyle">144 bf</div></div>
+            <div class="res"><div class="k">International ¼</div><div class="n" id="bf-intl">180 bf</div><div class="s">Clark's 4-ft sections, nearest 5 bf</div></div>
+            <div class="res hl"><div class="k">The gap</div><div class="n" style="font-size:1.25rem;font-family:var(--font)" id="bf-gap">International ¼ scales 25 % higher than Doyle (36 bf more).</div><div class="s" id="bf-money">Add a price per MBF to see the gap in dollars.</div></div>
+            <div class="res muted"><div class="k">Scribner Decimal C</div><div class="n">Needs the USFS table. It is in the app.</div></div>
+            <p class="msg" id="bf-msg">Scaled at 16 in × 16 ft (fractions dropped).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="alt">
+      <div class="wrap">
+        <h2>Doyle and International ¼ at <span id="bf-table-len">16</span> ft</h2>
+        <p>The gap is widest on small logs and turns around near 30 inches.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">Diameter</th><th scope="col">Doyle, bf</th><th scope="col">Int. ¼, bf</th><th scope="col">Int. ¼ vs Doyle</th></tr></thead>
+            <tbody id="bf-table">
+              <tr><td>8 in</td><td>16</td><td>40</td><td>+150 %</td></tr>
+              <tr><td>10 in</td><td>36</td><td>65</td><td>+81 %</td></tr>
+              <tr><td>12 in</td><td>64</td><td>95</td><td>+48 %</td></tr>
+              <tr><td>14 in</td><td>100</td><td>135</td><td>+35 %</td></tr>
+              <tr><td>16 in</td><td>144</td><td>180</td><td>+25 %</td></tr>
+              <tr><td>18 in</td><td>196</td><td>230</td><td>+17 %</td></tr>
+              <tr><td>20 in</td><td>256</td><td>290</td><td>+13 %</td></tr>
+              <tr><td>24 in</td><td>400</td><td>425</td><td>+6 %</td></tr>
+              <tr><td>28 in</td><td>576</td><td>585</td><td>+2 %</td></tr>
+              <tr><td>32 in</td><td>784</td><td>770</td><td class="neg">−2 %</td></tr>
+              <tr><td>36 in</td><td>1,024</td><td>980</td><td class="neg">−4 %</td></tr>
+              <tr><td>40 in</td><td>1,296</td><td>1,220</td><td class="neg">−6 %</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="wrap">
+        <div class="calc">
+          <form id="lb-form" class="card form" novalidate>
+            <h2 style="font-size:1.35rem">Sawn lumber</h2>
+            <p class="small" style="margin:0">Nominal sizes for softwood dimension lumber (a 2×4 counts as 2 × 4). Rough thickness for hardwood: 4/4 is 1 inch, 8/4 is 2.</p>
+            <div class="unit-row">
+              <div class="field"><label for="lb-t">Thickness, in</label><input id="lb-t" type="text" inputmode="decimal" autocomplete="off" value="2"></div>
+              <div class="field"><label for="lb-w">Width, in</label><input id="lb-w" type="text" inputmode="decimal" autocomplete="off" value="6"></div>
+            </div>
+            <div class="unit-row">
+              <div class="field"><label for="lb-l">Length, ft</label><input id="lb-l" type="text" inputmode="decimal" autocomplete="off" value="12"></div>
+              <div class="field"><label for="lb-n">Pieces</label><input id="lb-n" type="text" inputmode="numeric" autocomplete="off" value="1"></div>
+            </div>
+          </form>
+          <div class="results" aria-live="polite">
+            <div class="res"><div class="k">Board feet</div><div class="n" id="lb-bf">12.00 bf</div><div class="s">thickness × width × length ÷ 12</div></div>
+            <div class="res"><div class="k">Cubic metres</div><div class="n" id="lb-m3">0.0283 m³</div><div class="s">1 bf = 144 cubic inches</div></div>
+            <p class="msg" id="lb-msg"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="alt">
+      <div class="wrap narrow prose" style="padding-top:0;padding-bottom:0">
+        <h2 style="margin-top:0">Why the rules disagree</h2>
+        <h3>Doyle under-scales small logs</h3>
+        <p>Doyle takes 4 inches off the diameter for slabs, then squares what is left: <span class="formula">(D − 4)² × L ÷ 16</span>. On a 12-inch log those 4 inches are a third of the width, so a 12 in × 16 ft log scales 64 bf by Doyle and 95 bf by International ¼. The gap closes near 28 inches, and on big logs Doyle comes out ahead.</p>
+        <h3>Scribner is a drawing, not a formula</h3>
+        <p>J. M. Scribner drew 1-inch boards inside circles, allowed a ¼-inch saw kerf, ignored taper and wrote down the totals. Scribner Decimal C rounds those totals to tens and drops the last zero, so a table value of 16 means 160 bf. The table jumps unevenly, so any formula is only an approximation, and the common shortcut is off by 10 % or more on some logs (14 in × 20 ft: about 154 bf against 140 in the table). That is why this page does not compute it. Woodtally uses the USFS table.</p>
+        <h3>International ¼ follows the log</h3>
+        <p>International ¼ assumes the taper real logs have, ½ inch every 4 feet, and allows for a ¼-inch kerf and shrinkage. Of the three it comes closest to what a modern mill saws. This page adds up Clark's 4-foot sections, <span class="formula">0.22 D² − 0.71 D</span>, with D growing ½ inch per section, multiplies by 0.905 for the ¼-inch kerf and rounds to the nearest 5 bf. The printed table rounds up in a few cells (15 in × 16 ft is 160 in the table and 155 here). The app uses the table.</p>
+        <h3>What it means when you sell</h3>
+        <p>A load of 12-inch logs can lose a third of its footage on Doyle compared with International ¼. Ask which rule the buyer scales by before you agree a price per thousand, and run a few logs on more than one rule.</p>
+        <h3>How to measure</h3>
+        <p>Diameter at the small end, inside the bark, two readings at right angles, averaged, fractions dropped. Length in whole feet without the trim allowance. Logs over 20 feet are scaled as two logs.</p>
+      </div>
+    </section>
+    <section>
+      <div class="wrap narrow">
+        <div class="cta">
+          <h2>Scale the whole load the same way</h2>
+          <p>Woodtally runs these rules and Scribner Decimal C on your phone, log by log, with totals, CSV and PDF exports and backups. No signal needed, no ads, and Pro is paid once.</p>
+          <a class="btn " href="https://play.google.com/store/apps/details?id=com.mufatech.woodtally" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 3.8v16.4c0 .8.9 1.3 1.6.9l13-8.2c.6-.4.6-1.4 0-1.8l-13-8.2C6.9 2.5 6 3 6 3.8z" fill="currentColor"/></svg><span>Get it on Google Play</span></a>
+        </div>
+        <p class="disclaimer" style="margin-top:24px">Volumes follow the chosen rule and are estimates. In a dispute the official scale counts.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="foot">
+    <div class="wrap">
+      <nav aria-label="Privacy, Support">
+        <a href="privacy.html">Privacy</a>
+        <a href="support.html">Support</a>
+        <a href="board-feet-calculator.html" aria-current="page">Board feet calculator</a>
+      </nav>
+      <nav aria-label="Language">
+        <a href="board-feet-calculator.html" hreflang="en" lang="en" aria-current="true">English</a>
+        <a href="de/festmeter-rechner.html" hreflang="de" lang="de">Deutsch</a>
+        <a href="tr/kubaj-hesaplama.html" hreflang="tr" lang="tr">Türkçe</a>
+      </nav>
+      <p class="small" style="margin:0">Woodtally is made by MUFATECH. <a href="mailto:hello@mufatech.com">hello@mufatech.com</a> · © 2026 MUFATECH</p>
+    </div>
+  </footer>
+  <script src="calc.js" defer></script>
+</body>
+</html>

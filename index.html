@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Woodtally: log scale, board feet and firewood calculator</title>
+  <meta name="description" content="One log, every rule. Doyle, Scribner Decimal C and International ¼ side by side, log tallies, cords and Festmeter. Works offline, no ads, pay once. For Android.">
+  <link rel="canonical" href="https://mufa-tech.github.io/woodtally/">
+  <link rel="alternate" hreflang="en" href="https://mufa-tech.github.io/woodtally/">
+  <link rel="alternate" hreflang="de" href="https://mufa-tech.github.io/woodtally/de/">
+  <link rel="alternate" hreflang="tr" href="https://mufa-tech.github.io/woodtally/tr/">
+  <link rel="alternate" hreflang="x-default" href="https://mufa-tech.github.io/woodtally/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Woodtally">
+  <meta property="og:title" content="Woodtally: log scale, board feet and firewood calculator">
+  <meta property="og:description" content="One log, every rule. Doyle, Scribner Decimal C and International ¼ side by side, log tallies, cords and Festmeter. Works offline, no ads, pay once. For Android.">
+  <meta property="og:url" content="https://mufa-tech.github.io/woodtally/">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:locale:alternate" content="tr_TR">
+  <meta name="theme-color" content="#F5EFE6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#17120D" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&amp;family=Barlow+Semi+Condensed:wght@600;700&amp;display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="./" aria-label="Woodtally home"><svg class="mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><g class="rings" fill="none" stroke-width="2.4"><circle cx="20" cy="20" r="17"/><circle cx="20" cy="20" r="10.5"/><circle cx="20" cy="20" r="4.5"/></g><line class="cut" x1="1.5" y1="20" x2="38.5" y2="20" stroke-width="3.2" stroke-linecap="round"/></svg><span>Woodtally</span></a>
+      <nav class="nav" aria-label="Woodtally">
+        <a href="board-feet-calculator.html">Board feet calculator</a>
+        <a href="support.html">Support</a>
+        <a href="https://play.google.com/store/apps/details?id=com.mufatech.woodtally" rel="noopener">Google Play</a>
+      </nav>
+    </div>
+  </header>
+  <div class="tape" role="presentation"></div>
+  <main id="main">
+    <section class="hero">
+      <div class="wrap">
+        <div>
+          <p class="kicker">Log scale · Timber volume · Firewood</p>
+          <h1>One log, every rule.</h1>
+          <p class="lead">Scale a log once and Woodtally shows Doyle, Scribner Decimal C, International ¼ and cubic volume side by side, with the gap between them. A tally book for the landing, the mill yard and the woodlot, and it works where there is no signal.</p>
+          <ul class="chips" aria-label="In short">
+            <li>Pay once</li><li>No ads</li><li>No account</li><li>Works without signal</li>
+          </ul>
+          <a class="btn " href="https://play.google.com/store/apps/details?id=com.mufatech.woodtally" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 3.8v16.4c0 .8.9 1.3 1.6.9l13-8.2c.6-.4.6-1.4 0-1.8l-13-8.2C6.9 2.5 6 3 6 3.8z" fill="currentColor"/></svg><span>Get it on Google Play</span></a>
+          <p class="small" style="margin-top:10px">Android. The core is free; Pro is a one-time purchase.</p>
+        </div>
+        <figure class="scale-card" aria-label="Example: fair scale card for one log">
+          <svg class="grain" viewBox="0 0 200 200" aria-hidden="true" focusable="false"><g fill="none" stroke-width="3"><circle cx="100" cy="100" r="92"/><circle cx="100" cy="100" r="74"/><circle cx="100" cy="100" r="58"/><circle cx="100" cy="100" r="42"/><circle cx="100" cy="100" r="27"/><circle cx="100" cy="100" r="12"/></g><line x1="2" y1="100" x2="198" y2="100" stroke-width="5" stroke-linecap="round"/></svg>
+          <h2>Fair scale card</h2>
+          <div class="dims">16 in × 16 ft</div>
+          <ul class="rows">
+            <li><span>Doyle</span><span class="v">144 bf</span></li>
+            <li><span>Scribner Decimal C</span><span class="v">160 bf</span></li>
+            <li><span>International ¼</span><span class="v">180 bf</span></li>
+          </ul>
+          <div class="gap">+25 % International ¼ over Doyle</div>
+          <figcaption class="small" style="margin-top:12px;position:relative">Small-end diameter inside bark. Values match the published USFS and extension tables.</figcaption>
+        </figure>
+      </div>
+    </section>
+    <div class="wrap">
+      <!-- Screenshots placeholder: images are added later -->
+      <div class="shots"></div>
+    </div>
+    <section>
+      <div class="wrap">
+        <h2>What it does</h2>
+        <div class="grid grid-3">
+          <div class="card"><h3><span class="dot"></span>Fair scale card</h3><p>Type one log and see every rule next to each other, with the percent between them. The quickest way to settle a price talk at the landing. Free.</p></div>
+          <div class="card"><h3><span class="dot"></span>Tallies that stay yours</h3><p>As many tallies and logs as you like. Edit any line, see the totals, export CSV or PDF and back up to one file. None of it is kept behind Pro.</p></div>
+          <div class="card"><h3><span class="dot"></span>Made for the yard</h3><p>Big keys for gloved hands, the last length stays filled in, and a high-contrast theme for full sun. No signal needed at any point.</p></div>
+          <div class="card"><h3><span class="dot"></span>Firewood stacks</h3><p>Full cord, face cord (rick), stacked cubic metres (Raummeter, ster) and loose measure, with the solid wood in each and the source of every factor.</p></div>
+          <div class="card"><h3><span class="dot"></span>Sawn lumber</h3><p>Board feet and cubic metres for boards and beams in the sizes you enter, inches or millimetres.</p></div>
+          <div class="card"><h3><span class="dot"></span>Free calculator on the web</h3><p>Try Doyle against International ¼ in your browser first.</p><p><a href="board-feet-calculator.html">Board feet calculator</a></p></div>
+        </div>
+      </div>
+    </section>
+    <section class="alt">
+      <div class="wrap">
+        <h2>Every rule is free</h2>
+        <p>Pick the rule your buyer scales by, or show them all at once. Scribner Decimal C comes from the USFS table, not from a shortcut formula.</p>
+        <ul class="rules">
+          <li>Doyle</li><li>Scribner Decimal C</li><li>International ¼ and ⅛</li><li>Doyle–Scribner</li><li>Huber and Smalian</li>
+          <li>German RVR Festmeter</li><li>Turkish OGM kübaj</li><li>Polish Lasy Państwowe</li><li>Russian GOST 2708-75 and 32594-2025</li>
+          <li>Japanese JAS</li><li>Hoppus</li><li>Brazilian Francon</li>
+        </ul>
+      </div>
+    </section>
+    <section>
+      <div class="wrap">
+        <div class="grid grid-2">
+          <div class="card pro">
+            <span class="tag">PRO · ONE PAYMENT</span>
+            <h3>For people who buy and sell logs</h3>
+            <ul>
+              <li>Every rule on the whole load, with the money gap in your currency.</li>
+              <li>Reconcile two tallies, yours and the mill's, log by log. It shows the cause: missing logs, logs with another diameter or length, and how much of the gap comes from the rule and rounding.</li>
+              <li>Cut planner: boards, kerf, cants and yield before you buy the log.</li>
+              <li>Tickets with your business name and logo.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3><span class="dot"></span>Try it for real first</h3>
+            <p>Every Pro tool is open for 7 days. The trial runs on your phone and never turns into a charge, so there is nothing to cancel. When it ends, everything you entered stays where it was.</p>
+            <h3><span class="dot"></span>Nothing leaves your phone</h3>
+            <p>No account, no analytics, no ads. The only connection the app makes is to Google Play Billing when you buy Pro. <a href="privacy.html">Privacy policy</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="wrap narrow">
+        <div class="cta">
+          <h2>Scale your next load with it</h2>
+          <p>Free to install. Pro is paid once and stays yours.</p>
+          <a class="btn " href="https://play.google.com/store/apps/details?id=com.mufatech.woodtally" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 3.8v16.4c0 .8.9 1.3 1.6.9l13-8.2c.6-.4.6-1.4 0-1.8l-13-8.2C6.9 2.5 6 3 6 3.8z" fill="currentColor"/></svg><span>Get it on Google Play</span></a>
+        </div>
+        <p class="disclaimer" style="margin-top:24px">Volumes follow the chosen rule and are estimates. In a dispute the official scale counts.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="foot">
+    <div class="wrap">
+      <nav aria-label="Privacy, Support">
+        <a href="privacy.html">Privacy</a>
+        <a href="support.html">Support</a>
+        <a href="board-feet-calculator.html">Board feet calculator</a>
+      </nav>
+      <nav aria-label="Language">
+        <a href="./" hreflang="en" lang="en" aria-current="true">English</a>
+        <a href="de/" hreflang="de" lang="de">Deutsch</a>
+        <a href="tr/" hreflang="tr" lang="tr">Türkçe</a>
+      </nav>
+      <p class="small" style="margin:0">Woodtally is made by MUFATECH. <a href="mailto:hello@mufatech.com">hello@mufatech.com</a> · © 2026 MUFATECH</p>
+    </div>
+  </footer>
+</body>
+</html>
